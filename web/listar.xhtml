@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+    <h:head>
+      <ui:include src="header.xhtml" />
+        <ui:include src="menu.xhtml"/>
+        
+        
+    </h:head>
+    
+    <h:body>
+        
+      
+        
+        <h:dataTable var="jogo" id="tabela" styleClass="table table-striped" value="#{jogoControle.listarJogos}">
+        
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nome"/>
+                </f:facet>    
+                <h:outputText value="#{jogo.nome}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Gênero"/>
+                </f:facet>    
+                <h:outputText value="#{jogo.genero}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Preço"/>
+                </f:facet>    
+                <h:outputText value="#{jogo.preco}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Faixa Etária"/>
+                </f:facet>    
+                <h:outputText value="#{jogo.faixaEtaria}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Descrição"/>
+                </f:facet>    
+                <h:outputText value="#{jogo.descricao}"/>
+            </h:column>
+            
+             <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Excluir"/>
+                </f:facet>
+                <h:form>
+                    <h:commandButton styleClass="btn btn-danger" action="#{jogoControle.excluirJogo}" value="Excluir"/>
+                    </h:form>
+                 </h:column>
+            <br/>
+                <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Alterar"/>
+                </f:facet>
+                <h:form>
+                    <h:commandButton styleClass="btn btn-warning" action="#{jogoControle.prepararAlterarJogo}" value="Alterar"/>
+                    </h:form>
+            </h:column>
+      
+                
+        </h:dataTable>
+    </h:body>
+    
+</html>

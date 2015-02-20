@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <ui:include src="header.xhtml" />
+        <ui:include src="menu.xhtml"/>
+        <title></title>
+    </h:head>
+    <h:body>
+
+        <script>
+            /* Validação dos campos */
+        
+            $(document).ready(function () {
+                $("#formulario").validate({/* pegando a classe .form horizontal */
+                    debug: true,
+                    /* criando as regras   */
+                    rules: {
+                        'formulario:nome': {
+                            required: true
+                        },
+                        'formulario:preco': {
+                            required: true,
+                            min: 1, /* mínimo acima de 0 */
+                            number: true /* só aceita números */
+
+                        }
+                    },
+                    /* adicionar o vermelho em volta do input, caso tenha erro */
+                    highlight: function (element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    /* remove o vermelho em volta do input, caso não tenha erro */
+                    unhighlight: function (element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    },
+                    submitHandler: function (form) {
+                        form.submit();
+                    }
+
+                });
+            });
+            jQuery.extend(jQuery.validator.messages, {
+                required: "Campo obrigatório!",
+                remote: "Please fix this field.",
+                email: "Please enter a valid email address.",
+                url: "Please enter a valid URL.",
+                date: "Please enter a valid date.",
+                dateISO: "Please enter a valid date (ISO).",
+                number: "Please enter a valid number.",
+                digits: "Please enter only digits.",
+                creditcard: "Please enter a valid credit card number.",
+                equalTo: "Please enter the same value again.",
+                accept: "Please enter a value with a valid extension.",
+                maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+                minlength: jQuery.validator.format("Please enter at least {0} characters."),
+                rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+                range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+                max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+                min: jQuery.validator.format("Coloque um valor acima de zero!")
+            });
+
+        </script> 
+
+        <h1 class="h1-form-titulo">Formulário de jogos</h1>
+
+        <h:form id="formulario" styleClass="form-horizontal"  >
+            <div class="form-group">
+                <label for="inputNome" class="col-sm-2 control-label" ></label>
+                <div class="col-sm-9">
+                    <h:inputText id="nome" class="form-control" pt:placeholder="Informe o nome: "  value="#{jogoControle.jogo.nome}"  />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputGenero" class="col-sm-2 control-label"></label>
+                <div class="col-sm-9">
+                    <h:selectOneMenu class="form-control"  pt:placeholder="" id="genero" value="#{jogoControle.jogo.genero}">
+                        
+                        <f:selectItem itemValue="Ação" itemLabel="Ação" />
+                        <f:selectItem itemValue="Aventura" itemLabel="Aventura" />
+                        <f:selectItem itemValue="Esporte" itemLabel="Esporte" />
+                        <f:selectItem itemValue="RPG" itemLabel="RPG" />
+                        <f:selectItem itemValue="Sobrevivência" itemLabel="Sobrevivência" />
+                        <f:selectItem itemValue="Shooter" itemLabel="Shooter" />
+                    </h:selectOneMenu>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPreco" class="col-sm-2 control-label"></label>
+                <div class="col-sm-9">
+                    <h:inputText id="preco" class="form-control" pt:placeholder="Informe um preço: "  value="#{jogoControle.jogo.preco}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputFaixa" class="col-sm-2 control-label"></label>
+                <div class="col-sm-9">
+                    <h:inputText id="faixaEtaria" class="form-control" pt:placeholder="Informe a faixa etária: " value="#{jogoControle.jogo.faixaEtaria}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDescricao" class="col-sm-2 control-label"></label>
+                <div class="col-sm-9">
+                    <h:inputText id="descricao" class="form-control" pt:placeholder="Breve descrição sobre o jogo: " value="#{jogoControle.jogo.descricao}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9">
+                    <h:commandButton type="submit" styleClass="btn btn-primary" action="#{jogoControle.adicionarJogo()}" value="Inserir Novo Jogo"/>
+
+                </div>
+            </div>
+            
+        </h:form>
+
+    </h:body>
+</html>
+

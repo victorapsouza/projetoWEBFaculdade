@@ -1,0 +1,109 @@
+body {
+    padding-top: 10px;
+
+
+}
+
+#tabela {
+     position: fixed; /* or absolute if you want it to scroll with the page */
+    top: 43%; /* distancia do topo */
+    left: 43%; /* distancia da esquerda */
+    width: 800px; /* definindo a largura */
+    height: 450px; /* definindo a altura */
+    padding-top: 0px; /* largura cinza topo */
+    background-color: whitesmoke;   /* cor do formulario */
+    -moz-box-shadow: 0 0 2px black;
+    -webkit-box-shadow: 0 0 2px black;
+    box-shadow: 0 0 2px black;
+
+
+    margin-top: -150px;
+    margin-left: -300px;
+}
+
+
+.h1-boasvindas {
+
+
+    text-align: center;
+    padding-top: 200px;
+    padding-left: 5px;
+
+}
+
+h2 {
+
+    text-align: center;
+    padding: 70px 15px;
+    text-align: center;
+    padding-left: 5px;
+
+}
+
+.h1-form-titulo {
+
+    text-align: center; /* alinhamento do texto no centro */
+    padding-top: 90px; /* distância do topo */
+    padding-left: 10px; /* distância da esquerda */
+    padding-right: 160px; /* distância da direita */
+    color: #1f4d5f;
+
+
+}
+.listagem-h1 {
+    text-align: center; /* alinhamento do texto no centro */
+    padding-top: 50px; /* distância do topo */
+    padding-left: -40px; /* distância da esquerda */
+    padding-right: 50px; /* distância da direita */
+    
+}
+
+.h1-pagina-principal {
+    
+    text-align: center; /* alinhamento do texto no centro */
+    padding-top: 80px; /* distância do topo */
+    padding-left: -40px; /* distância da esquerda */
+    padding-right: 30px; /* distância da direita */
+    
+}
+.h2-pagina-principal {
+   text-align: center; /* alinhamento do texto no centro */
+    padding-top: 40px; /* distância do topo */
+    padding-left: -40px; /* distância da esquerda */
+    padding-right: 20px; /* distância da direita */
+}
+
+
+
+/* definindo o layout do formulário */
+.form-horizontal {
+
+    position: fixed; /* or absolute if you want it to scroll with the page */
+    top: 43%; /* distancia do topo */
+    left: 46%; /* distancia da esquerda */
+    width: 680px; /* definindo a largura */
+    height: 450px; /* definindo a altura */
+    padding-top: 40px; /* largura cinza topo */
+ 
+
+
+    margin-top: -150px;
+    margin-left: -300px;
+}
+
+
+.alert-success{
+    
+    padding-top: 50px;
+    text-align: center;
+    
+}
+.container-fluid {
+    
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+
+}
